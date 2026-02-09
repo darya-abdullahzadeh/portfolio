@@ -1,24 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website
+
+A minimalist portfolio website built with Next.js, TypeScript, and Tailwind CSS, powered by Payload CMS for content management.
+
+## Features
+
+- **Backend-driven content**: All content (Projects, Skills, Work Experience) is managed through Payload CMS
+- **Minimalist design**: Clean, modern UI with a neutral color palette and teal accent
+- **Dark mode support**: Automatic dark mode based on system preferences
+- **Type-safe**: Full TypeScript support with type definitions for all content types
+- **Optimized**: Server-side rendering with ISR for optimal performance
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ and npm
+- Payload CMS instance running (can be in a separate directory/server)
+
+### Installation
+
+1. Clone the repository and install dependencies:
+
+```bash
+npm install
+```
+
+2. Set up Payload CMS:
+
+   - Install Payload CMS in a separate directory or server
+   - Create collections for Projects, Skills, and Work Experience
+   - Ensure Payload API is accessible (default: `http://localhost:3001/api`)
+
+3. Configure environment variables:
+
+   Create a `.env.local` file in the root directory:
+
+```bash
+PAYLOAD_API_URL=http://localhost:3001/api
+# OR if using NEXT_PUBLIC prefix for client-side access:
+NEXT_PUBLIC_PAYLOAD_API_URL=http://localhost:3001/api
+```
+
+   **Note**: If your Payload instance is running on a different port or URL, update accordingly.
+
+4. Set up Payload collections:
+
+   You'll need to create the following collections in your Payload CMS:
+   - **Projects**: title, slug, description, technologies, images, links, etc.
+   - **Skills**: name, category, proficiency level, etc.
+   - **Work Experience**: company, role, dates, achievements, technologies, etc.
+
+   See the type definitions in `lib/types/` for the exact schema structure.
+
+5. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+├── components/          # Reusable React components
+│   ├── layout/         # Header, Footer
+│   ├── projects/       # Project-related components
+│   ├── skills/         # Skills components
+│   ├── experience/     # Experience components
+│   └── ui/             # UI primitives (Button, Card)
+├── api/                # Next.js API routes
+│   └── cms/           # CMS data fetching endpoints
+├── about/             # About page
+├── projects/          # Projects listing and detail pages
+├── skills/            # Skills page
+└── experience/        # Work experience page
+
+lib/
+├── cms/               # Payload client and queries
+└── types/             # TypeScript type definitions
+```
+
+## Content Management
+
+All content is managed through Payload CMS. Once configured, you can:
+
+- Add/edit projects without code changes
+- Update skills and proficiency levels
+- Manage work experience entries
+- Upload and manage images
+
+The site uses Incremental Static Regeneration (ISR) to cache content and revalidate every hour.
+
+## Payload CMS API Endpoints
+
+The frontend expects the following Payload collections:
+- `/api/projects` - Projects collection
+- `/api/skills` - Skills collection  
+- `/api/work-experience` - Work Experience collection
+
+Make sure your Payload instance has these collections configured with matching field names as defined in `lib/types/`.
 
 ## Learn More
 

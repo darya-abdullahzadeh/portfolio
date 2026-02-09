@@ -1,26 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Global colors */
+  --foreground: #FFF8F0; /* Warm cream for better readability on purple background */
+
+  /* Card + border colors (for readability on the image) */
+  --border: rgba(255, 255, 255, 0.16);
+  --border-dark: rgba(255, 255, 255, 0.32);
+  --card-bg: transparent;
+  --card-border: rgba(255, 255, 255, 0.16);
+  --muted: rgba(255, 248, 240, 0.9);
+  --muted-foreground: rgba(255, 248, 240, 0.8);
+
+  /* Accent lilac for buttons/links */
+  --accent-50: #f5f3ff;
+  --accent-100: #ede9fe;
+  --accent-200: #ddd6fe;
+  --accent-300: #c4b5fd;
+  --accent-400: #a78bfa;
+  --accent-500: #8b5cf6;
+  --accent-600: #7c3aed;
+  --accent-700: #6d28d9;
+  --accent-800: #5b21b6;
+  --accent-900: #4c1d95;
+
+  /* Background image */
+  --bg-image: url('/background.png');
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: 'Space Grotesk', var(--font-body);
+  --font-mono: var(--font-mono);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Semantic colors used across the app */
+  --color-border: var(--border);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* Accent colors */
+  --color-accent: var(--accent-500);
+  --color-accent-hover: var(--accent-400);
+  --color-accent-light: var(--accent-200);
+  --color-accent-dark: var(--accent-700);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  color: var(--foreground); /* All text white by default */
+  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont,
+    'SF Pro Text', sans-serif;
+
+  /* Solid fallback color; actual image handled by RootLayout's <Image> */
+  background-color: #050218;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Use heading font for main headings */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading), system-ui, serif;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, transform, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--accent-300);
+  outline-offset: 2px;
+}
+
+/* Optional: gradient text utility if you still use .gradient-text */
+.gradient-text {
+  font-family: var(--font-heading), system-ui, serif;
+  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: transparent;
+}
+
+html,
+body {
+  background-attachment: fixed;
+}
+
+/* Make sure Next.js wrappers and layout divs don't override */
+#__next,
+[data-nextjs-scroll-focus-boundary],
+body > div,
+body > div > div {
+  background: transparent !important;
 }

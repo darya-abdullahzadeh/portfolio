@@ -4,12 +4,12 @@ import { ImageWithFallback } from '../figma/ImageWithFallback';
 export function Projects() {
   const projects = [
     {
-      title: "Stellar E-Commerce",
-      description: "A full-stack e-commerce platform with payment integration, real-time inventory tracking, and AI-powered product recommendations that launched 1000+ successful transactions.",
-      tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      image: "https://images.unsplash.com/photo-1709408635158-8d735f0395c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGFjZSUyMGdhbGF4eSUyMG5lYnVsYXxlbnwxfHx8fDE3NzA2MTk5MjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      github: "https://github.com",
-      demo: "https://example.com",
+      title: "Ziman - Kurdish Language Assistant",
+      description: "A comprehensive language learning platform for Kurdish dialects, featuring real-time translation, multi-dialect support (Sorani & Kurmanji), and interactive learning tools to preserve and teach the Kurdish language.",
+      tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL, Google Gemini"],
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080", // Language/translation themed image
+      github: "https://github.com/darya-abdullahzadeh/kurdish-language-assistant",
+      demo: "https://ziman.netlify.app", // Add your deployed URL here if you have one
       featured: true
     },
     {

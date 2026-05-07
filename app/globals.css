@@ -1,38 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
-  /* Global colors */
-  --foreground: #FFF8F0; /* Warm cream for better readability on purple background */
-
-  /* Card + border colors (for readability on the image) */
-  --border: rgba(255, 255, 255, 0.16);
-  --border-dark: rgba(255, 255, 255, 0.32);
-  --card-bg: transparent;
-  --card-border: rgba(255, 255, 255, 0.16);
-  --muted: rgba(255, 248, 240, 0.9);
-  --muted-foreground: rgba(255, 248, 240, 0.8);
-
-  /* Accent lilac for buttons/links */
-  --accent-50: #f5f3ff;
-  --accent-100: #ede9fe;
-  --accent-200: #ddd6fe;
-  --accent-300: #c4b5fd;
-  --accent-400: #a78bfa;
-  --accent-500: #8b5cf6;
-  --accent-600: #7c3aed;
-  --accent-700: #6d28d9;
-  --accent-800: #5b21b6;
-  --accent-900: #4c1d95;
-
-  /* Background image */
-  --bg-image: url('/background.png');
+  --foreground: #47395b;
+  --border: rgba(191, 172, 214, 0.42);
+  --card-bg: #fffdfefa;
+  --card-border: rgba(198, 181, 219, 0.45);
+  --muted: #f4edf8;
+  --muted-foreground: #7f6f98;
+  --accent-100: #f4edfb;
+  --accent-200: #e8d9f5;
+  --accent-300: #d8c2ec;
+  --accent-400: #c2a2e1;
+  --accent-500: #ad84d3;
+  --accent-600: #9269bb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Space Grotesk', var(--font-body);
+  --font-sans: 'Inter', var(--font-body);
   --font-mono: var(--font-mono);
 
   /* Semantic colors used across the app */
@@ -44,50 +31,50 @@
 
   /* Accent colors */
   --color-accent: var(--accent-500);
-  --color-accent-hover: var(--accent-400);
+  --color-accent-hover: var(--accent-600);
   --color-accent-light: var(--accent-200);
-  --color-accent-dark: var(--accent-700);
+  --color-accent-dark: var(--accent-600);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  color: var(--foreground); /* All text white by default */
+  color: var(--foreground);
   font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont,
     'SF Pro Text', sans-serif;
-
-  /* Solid fallback color; actual image handled by RootLayout's <Image> */
-  background-color: #050218;
+  background: linear-gradient(180deg, #f8f0f9 0%, #fcf7fe 40%, #f5ebf8 100%);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(170, 146, 194, 0.12) 1px, transparent 0),
+    linear-gradient(180deg, #f8f0f9 0%, #fcf7fe 40%, #f5ebf8 100%);
+  background-size: 24px 24px, 100% 100%;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Use heading font for main headings */
 h1,
 h2,
 h3 {
-  font-family: var(--font-heading), system-ui, serif;
+  font-family: var(--font-heading), Georgia, serif;
+  color: #433756;
+  letter-spacing: -0.01em;
 }
 
-/* Smooth transitions */
-* {
-  transition-property: color, background-color, border-color, transform, box-shadow;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+section {
+  scroll-margin-top: 88px;
 }
 
 /* Focus styles */
 *:focus-visible {
-  outline: 2px solid var(--accent-300);
+  outline: 2px solid #c7abd8;
   outline-offset: 2px;
 }
 
 /* Optional: gradient text utility if you still use .gradient-text */
 .gradient-text {
-  font-family: var(--font-heading), system-ui, serif;
-  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.7));
+  font-family: var(--font-heading), Georgia, serif;
+  background: linear-gradient(120deg, #936eb7, #d28fb2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -95,18 +82,10 @@ h3 {
 
 html {
   scroll-behavior: smooth;
-  background: transparent;
+  background: #fffdfd;
 }
 
 html,
 body {
   background-attachment: fixed;
-}
-
-/* Make sure Next.js wrappers and layout divs don't override */
-#__next,
-[data-nextjs-scroll-focus-boundary],
-body > div,
-body > div > div {
-  background: transparent !important;
 }

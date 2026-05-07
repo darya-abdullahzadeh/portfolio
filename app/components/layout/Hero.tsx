@@ -1,7 +1,8 @@
 'use client';
 
-import { Github, Linkedin, Mail, ArrowDown, Sparkles, Terminal } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -18,26 +19,37 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
-      {/* Floating orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      
-      <div className="container mx-auto text-center relative z-10">
-        <div className="max-w-4xl mx-auto">
+    <section className="relative flex min-h-[84vh] items-end px-6 pb-8 pt-24 md:pb-12">
+      <div className="absolute inset-0 overflow-hidden rounded-b-4xl">
+        <Image
+          src="/background.png"
+          alt="Hero background"
+          fill
+          priority
+          quality={80}
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-[#fff8ff]/34 via-[#f6ecff]/48 to-[#f2e5f7]/68" />
+        <div className="pointer-events-none absolute -left-12 top-12 h-48 w-48 rounded-full bg-[#f0dbff]/45 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-10 right-8 h-56 w-56 rounded-full bg-[#ffdbe9]/45 blur-3xl" />
+      </div>
+
+      <div className="container relative z-10 mx-auto max-w-6xl">
+        <div className="mx-auto max-w-4xl rounded-3xl border border-[#eadcf2] bg-[#fffdf8ed] p-6 shadow-[0_18px_50px_-30px_rgba(167,126,194,0.7)] backdrop-blur-sm md:p-9">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center justify-center gap-2 mb-6">
-              <Sparkles className="w-6 h-6 text-purple-300 animate-pulse" />
-              <span className="text-purple-200 uppercase tracking-widest text-sm">Welcome to my universe</span>
-              <Sparkles className="w-6 h-6 text-purple-300 animate-pulse" />
+            <div className="mb-6 inline-flex items-center rounded-full border border-[#e5d3f0] bg-[#f9f2ff] px-3 py-1.5 text-xs font-medium uppercase tracking-[0.16em] text-[#8a6aa8]">
+              Full-Stack Engineer
             </div>
-            
-            <h1 className="text-6xl md:text-8xl text-white mb-6 tracking-tight">
-              Hi, I'm <span className="bg-gradient-to-r from-purple-200 via-purple-300 to-pink-200 bg-clip-text text-transparent">Darya Abdullahzadeh</span>
+
+            <h1 className="mb-4 max-w-3xl text-4xl font-semibold tracking-tight text-[#4d3f62] md:text-6xl">
+              End-to-end systems.
+              <br />
+              From APIs to production.
             </h1>
           </motion.div>
 
@@ -46,85 +58,92 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <Terminal className="w-6 h-6 text-purple-300" />
-              <p className="text-2xl md:text-3xl text-white/90 font-light">
-                Full-Stack Space Explorer & Code Architect
-              </p>
-            </div>
+            <p className="mb-7 max-w-2xl text-base leading-relaxed text-[#66557d] md:text-lg">
+              I&apos;m Darya Abdullahzadeh, a full-stack engineer. I ship complete features across the stack—typed APIs,
+              relational and document data layers, auth and integrations—and care about performance, reliability, and clear
+              tradeoffs when designs evolve.
+            </p>
           </motion.div>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="mb-6 flex flex-wrap items-center gap-3"
           >
-            Navigating the cosmos of code, I build stellar applications that push the boundaries of what's possible.
-            From nebulous ideas to concrete solutions, I transform visions into digital reality.
-          </motion.p>
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="inline-flex items-center gap-2 rounded-full bg-[#b58ad5] px-6 py-3 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:bg-[#a977cb]"
+            >
+              View Projects
+              <ArrowRight className="h-4 w-4" />
+            </button>
+            <a
+              href="/resume.pdf"
+              className="inline-flex items-center gap-2 rounded-full border border-[#dbc3ea] bg-white/90 px-6 py-3 text-sm font-medium text-[#6c5985] transition-all hover:-translate-y-0.5 hover:bg-[#f8f0ff]"
+            >
+              Download Resume
+              <Download className="h-4 w-4" />
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.55 }}
+            className="mb-6 grid max-w-2xl grid-cols-3 gap-3 text-center"
+          >
+            <div className="rounded-2xl border border-[#eadcf4] bg-white/75 px-3 py-2.5">
+              <p className="text-xl font-semibold text-[#6f5b89]">5+</p>
+              <p className="text-xs uppercase tracking-wide text-[#8a77a3]">Years</p>
+            </div>
+            <div className="rounded-2xl border border-[#eadcf4] bg-white/75 px-3 py-2.5">
+              <p className="text-xl font-semibold text-[#6f5b89]">50+</p>
+              <p className="text-xs uppercase tracking-wide text-[#8a77a3]">Systems</p>
+            </div>
+            <div className="rounded-2xl border border-[#eadcf4] bg-white/75 px-3 py-2.5">
+              <p className="text-xl font-semibold text-[#6f5b89]">100K+</p>
+              <p className="text-xs uppercase tracking-wide text-[#8a77a3]">Lines</p>
+            </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex items-center justify-center gap-6 mb-12"
+            className="flex flex-wrap items-center gap-3 border-t border-[#ecdff5] pt-5"
           >
-            <a 
-              href="https://github.com" 
+            <a
+              href="https://github.com/darya-abdullahzadeh"
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-4 bg-white/10 hover:bg-purple-500/30 rounded-full transition-all backdrop-blur-sm border border-purple-400/30 hover:border-purple-400/60 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/50 group relative"
+              className="rounded-full border border-[#e3d2ef] bg-[#f8f0ff] p-2.5 text-[#8666a6] transition-all hover:-translate-y-0.5 hover:border-[#c8a9dc] hover:text-[#6f4f91]"
+              aria-label="GitHub profile"
             >
-              <Github className="w-6 h-6 text-white" />
-              <div className="absolute -inset-1 bg-purple-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <Github className="h-5 w-5" />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/darya-abdullahzadeh/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-4 bg-white/10 hover:bg-purple-500/30 rounded-full transition-all backdrop-blur-sm border border-purple-400/30 hover:border-purple-400/60 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/50 group relative"
+              className="rounded-full border border-[#e3d2ef] bg-[#f8f0ff] p-2.5 text-[#8666a6] transition-all hover:-translate-y-0.5 hover:border-[#c8a9dc] hover:text-[#6f4f91]"
+              aria-label="LinkedIn profile"
             >
-              <Linkedin className="w-6 h-6 text-white" />
-              <div className="absolute -inset-1 bg-purple-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <Linkedin className="h-5 w-5" />
             </a>
             <a 
-              href="mailto:alex@example.com"
-              className="p-4 bg-white/10 hover:bg-purple-500/30 rounded-full transition-all backdrop-blur-sm border border-purple-400/30 hover:border-purple-400/60 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/50 group relative"
+              href="mailto:abdullahzadeh.darya@gmail.com"
+              className="rounded-full border border-[#e3d2ef] bg-[#f8f0ff] p-2.5 text-[#8666a6] transition-all hover:-translate-y-0.5 hover:border-[#c8a9dc] hover:text-[#6f4f91]"
+              aria-label="Email Darya"
             >
-              <Mail className="w-6 h-6 text-white" />
-              <div className="absolute -inset-1 bg-purple-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <Mail className="h-5 w-5" />
             </a>
+            <span className="ml-2 text-sm text-[#7d6a95]">
+              Full-stack engineering—APIs, data layers, and production web surfaces.
+            </span>
           </motion.div>
-
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            onClick={() => scrollToSection('about')}
-            className="px-10 py-5 bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-full transition-all backdrop-blur-sm border border-purple-400/50 inline-flex items-center gap-3 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/50 group"
-          >
-            Learn More
-            <ArrowDown className="w-4 h-4 group-hover:animate-bounce" />
-          </motion.button>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-      >
-        <div className="w-6 h-10 border-2 border-purple-300/50 rounded-full flex items-start justify-center p-2">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-purple-300 rounded-full"
-          ></motion.div>
-        </div>
-      </motion.div>
     </section>
   );
 }

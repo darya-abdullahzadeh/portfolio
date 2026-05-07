@@ -33,40 +33,40 @@ export function Experience({ experiences }: ExperienceProps) {
   const getColorClasses = (color: typeof colors[number]) => {
     const colorMap = {
       purple: {
-        border: 'border-purple-400/30 hover:border-purple-400/60',
-        shadow: 'hover:shadow-purple-500/30',
-        gradient: 'bg-gradient-to-br from-purple-500/40 to-purple-600/40',
-        bgOverlay: 'bg-purple-500/10',
-        badge: 'bg-purple-500/20 border-purple-400/30 text-purple-100 hover:bg-purple-500/30 hover:border-purple-400/50',
-        icon: 'text-purple-300',
-        iconSmall: 'text-purple-400',
+        border: 'border-[#eadcf4]',
+        shadow: 'hover:shadow-[0_20px_42px_-30px_rgba(155,114,189,0.7)]',
+        gradient: 'bg-linear-to-br from-[#f3e7fc] to-[#eadbf8]',
+        bgOverlay: 'bg-[#f3e7fc]',
+        badge: 'border border-[#e2d0f0] bg-[#f7effd] text-[#7c6795]',
+        icon: 'text-[#8c6cb0]',
+        iconSmall: 'text-[#9f7fc0]',
       },
       pink: {
-        border: 'border-pink-400/30 hover:border-pink-400/60',
-        shadow: 'hover:shadow-pink-500/30',
-        gradient: 'bg-gradient-to-br from-pink-500/40 to-pink-600/40',
-        bgOverlay: 'bg-pink-500/10',
-        badge: 'bg-pink-500/20 border-pink-400/30 text-pink-100 hover:bg-pink-500/30 hover:border-pink-400/50',
-        icon: 'text-pink-300',
-        iconSmall: 'text-pink-400',
+        border: 'border-[#f0dbe7]',
+        shadow: 'hover:shadow-[0_20px_42px_-30px_rgba(189,123,160,0.65)]',
+        gradient: 'bg-linear-to-br from-[#fbe9f2] to-[#f6dcea]',
+        bgOverlay: 'bg-[#fbe9f2]',
+        badge: 'border border-[#f0d4e3] bg-[#fdeff6] text-[#946b84]',
+        icon: 'text-[#b77898]',
+        iconSmall: 'text-[#c48aaa]',
       },
       blue: {
-        border: 'border-blue-400/30 hover:border-blue-400/60',
-        shadow: 'hover:shadow-blue-500/30',
-        gradient: 'bg-gradient-to-br from-blue-500/40 to-blue-600/40',
-        bgOverlay: 'bg-blue-500/10',
-        badge: 'bg-blue-500/20 border-blue-400/30 text-blue-100 hover:bg-blue-500/30 hover:border-blue-400/50',
-        icon: 'text-blue-300',
-        iconSmall: 'text-blue-400',
+        border: 'border-[#d7e0f2]',
+        shadow: 'hover:shadow-[0_20px_42px_-30px_rgba(125,153,193,0.7)]',
+        gradient: 'bg-linear-to-br from-[#edf2fe] to-[#e0eaff]',
+        bgOverlay: 'bg-[#edf2fe]',
+        badge: 'border border-[#d5e0f3] bg-[#eef3ff] text-[#6e81a3]',
+        icon: 'text-[#7188b3]',
+        iconSmall: 'text-[#7f95bd]',
       },
       indigo: {
-        border: 'border-indigo-400/30 hover:border-indigo-400/60',
-        shadow: 'hover:shadow-indigo-500/30',
-        gradient: 'bg-gradient-to-br from-indigo-500/40 to-indigo-600/40',
-        bgOverlay: 'bg-indigo-500/10',
-        badge: 'bg-indigo-500/20 border-indigo-400/30 text-indigo-100 hover:bg-indigo-500/30 hover:border-indigo-400/50',
-        icon: 'text-indigo-300',
-        iconSmall: 'text-indigo-400',
+        border: 'border-[#e2dcf5]',
+        shadow: 'hover:shadow-[0_20px_42px_-30px_rgba(143,125,194,0.7)]',
+        gradient: 'bg-linear-to-br from-[#f1edfd] to-[#e7defa]',
+        bgOverlay: 'bg-[#f1edfd]',
+        badge: 'border border-[#ddd2f4] bg-[#f2ecff] text-[#74689c]',
+        icon: 'text-[#8578b1]',
+        iconSmall: 'text-[#9588bc]',
       },
     };
     return colorMap[color];
@@ -74,21 +74,15 @@ export function Experience({ experiences }: ExperienceProps) {
 
   if (experiences.length === 0) {
     return (
-      <section id="experience" className="py-20 px-6 relative">
+      <section id="experience" className="rounded-[1.75rem] border border-[#efdff1] bg-[#fff8fc] py-16 px-6 shadow-[0_22px_50px_-42px_rgba(184,127,163,0.45)]">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <div className="h-px w-8 bg-gradient-to-r from-transparent to-purple-400"></div>
-              <Briefcase className="w-5 h-5 text-purple-300" />
-              <div className="h-px w-8 bg-gradient-to-l from-transparent to-purple-400"></div>
-            </div>
-            <h2 className="text-5xl md:text-6xl text-white mb-4 bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">
-              Mission Log
-            </h2>
-            <p className="text-purple-200/60 uppercase tracking-widest text-sm">Professional journey</p>
+            <p className="mb-3 text-sm uppercase tracking-[0.2em] text-[#a689bf]">Experience</p>
+            <h2 className="mb-4 text-5xl text-[#4c3e60] md:text-6xl">Experience</h2>
+            <p className="text-sm uppercase tracking-widest text-[#8f7ba8]">Backend, frontend & platform ownership</p>
           </div>
-          <div className="rounded-2xl border border-purple-400/30 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-12 text-center">
-            <p className="text-white/70">
+          <div className="rounded-2xl border border-[#eadcf4] bg-white/90 p-12 text-center">
+            <p className="text-[#6d5b84]">
               No experience entries found. Please configure your Payload CMS to add work experience.
             </p>
           </div>
@@ -98,26 +92,15 @@ export function Experience({ experiences }: ExperienceProps) {
   }
 
   return (
-    <section id="experience" className="py-20 px-6 relative">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-      <div className="absolute top-20 right-1/3 w-3 h-3 bg-pink-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-      <div className="absolute bottom-20 left-1/3 w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-      
+    <section id="experience" className="rounded-[1.75rem] border border-[#efdff1] bg-[#fff8fc] py-16 px-6 shadow-[0_22px_50px_-42px_rgba(184,127,163,0.45)]">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <div className="h-px w-8 bg-gradient-to-r from-transparent to-purple-400"></div>
-            <Briefcase className="w-5 h-5 text-purple-300 animate-pulse" />
-            <div className="h-px w-8 bg-gradient-to-l from-transparent to-purple-400"></div>
-          </div>
-          <h2 className="text-5xl md:text-6xl text-white mb-4 bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">
-            Mission Log
-          </h2>
-          <p className="text-purple-200/60 uppercase tracking-widest text-sm">Professional journey through the cosmos</p>
+          <p className="mb-3 text-sm uppercase tracking-[0.2em] text-[#a689bf]">Experience</p>
+          <h2 className="mb-4 text-5xl text-[#4c3e60] md:text-6xl">Experience</h2>
+          <p className="text-sm uppercase tracking-widest text-[#8f7ba8]">Systems shipped, responsibilities, and stack depth</p>
         </div>
         
-        <div className="space-y-8">
+        <div className="space-y-6">
           {experiences.map((experience, index) => {
             const color = getColor(index);
             const colorClasses = getColorClasses(color);
@@ -126,27 +109,28 @@ export function Experience({ experiences }: ExperienceProps) {
             return (
               <div
                 key={experience.id}
-                className={`bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-8 border ${colorClasses.border} transition-all group hover:shadow-2xl ${colorClasses.shadow} hover:-translate-y-1 relative overflow-hidden`}
+                className={`relative overflow-hidden rounded-2xl border ${colorClasses.border} bg-white/92 p-7 transition-all ${colorClasses.shadow} hover:-translate-y-1`}
               >
+                <div className="absolute left-0 top-0 h-full w-1.5 bg-linear-to-b from-[#d6b7ea] via-[#efcce0] to-[#c2d4ed]" />
                 {/* Decorative gradient overlay */}
-                <div className={`absolute top-0 right-0 w-64 h-64 ${colorClasses.bgOverlay} rounded-full blur-3xl -z-0`}></div>
+                <div className={`absolute right-0 top-0 z-0 h-64 w-64 ${colorClasses.bgOverlay} rounded-full blur-3xl opacity-60`} />
                 
                 <div className="relative z-10">
                   {/* Header */}
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                     <div className="flex-1">
                       <div className="flex items-start gap-4 mb-3">
-                        <div className={`p-3 ${colorClasses.gradient} rounded-xl group-hover:scale-110 transition-transform`}>
-                          <Briefcase className="w-6 h-6 text-white" />
+                        <div className={`rounded-xl p-3 ${colorClasses.gradient} transition-transform group-hover:scale-105`}>
+                          <Briefcase className="h-6 w-6 text-[#6d5b84]" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-2xl md:text-3xl text-white mb-2 group-hover:text-purple-200 transition-colors">
+                          <h3 className="mb-2 text-2xl text-[#4d3f62] transition-colors md:text-3xl">
                             {experience.role}
                           </h3>
-                          <p className="text-xl text-white/80 mb-2">{experience.companyName}</p>
+                          <p className="mb-2 text-xl text-[#66557d]">{experience.companyName}</p>
                           {experience.location && (
-                            <div className="flex items-center gap-2 text-white/60 text-sm">
-                              <MapPin className="w-4 h-4" />
+                            <div className="flex items-center gap-2 text-sm text-[#75648d]">
+                              <MapPin className="h-4 w-4" />
                               <span>{experience.location}</span>
                             </div>
                           )}
@@ -156,13 +140,13 @@ export function Experience({ experiences }: ExperienceProps) {
                     
                     {/* Date and Duration */}
                     <div className="flex flex-col items-start md:items-end gap-2">
-                      <div className="flex items-center gap-2 text-white/80">
-                        <Calendar className="w-4 h-4" />
+                      <div className="flex items-center gap-2 text-[#6e5d85]">
+                        <Calendar className="h-4 w-4" />
                         <span className="text-sm font-medium">
                           {formatDate(experience.startDate)} - {isCurrent ? 'Present' : formatDate(experience.endDate!)}
                         </span>
                       </div>
-                      <span className={`px-3 py-1 ${colorClasses.badge} rounded-full text-xs backdrop-blur-sm`}>
+                      <span className={`rounded-full px-3 py-1 text-xs ${colorClasses.badge}`}>
                         {getDuration(experience.startDate, experience.endDate)}
                       </span>
                     </div>
@@ -170,7 +154,7 @@ export function Experience({ experiences }: ExperienceProps) {
 
                   {/* Description */}
                   {experience.description && (
-                    <p className="text-white/70 mb-6 leading-relaxed">{experience.description}</p>
+                    <p className="mb-6 leading-relaxed text-[#65547d]">{experience.description}</p>
                   )}
 
                   {/* Achievements */}
@@ -178,12 +162,12 @@ export function Experience({ experiences }: ExperienceProps) {
                     <div className="mb-6">
                       <div className="flex items-center gap-2 mb-4">
                         <Award className={`w-5 h-5 ${colorClasses.icon}`} />
-                        <h4 className="text-lg text-white font-semibold">Key Achievements</h4>
+                        <h4 className="text-lg font-semibold text-[#4e4063]">Technical outcomes</h4>
                       </div>
                       <ul className="space-y-2 pl-6">
                         {experience.achievements.map((achievement, idx) => (
-                          <li key={idx} className="text-white/80 flex items-start gap-3">
-                            <Rocket className={`w-4 h-4 ${colorClasses.iconSmall} mt-1 flex-shrink-0`} />
+                          <li key={idx} className="flex items-start gap-3 text-[#65547d]">
+                            <Rocket className={`mt-1 h-4 w-4 shrink-0 ${colorClasses.iconSmall}`} />
                             <span className="leading-relaxed">{achievement}</span>
                           </li>
                         ))}
@@ -193,16 +177,16 @@ export function Experience({ experiences }: ExperienceProps) {
 
                   {/* Technologies */}
                   {experience.technologies && experience.technologies.length > 0 && (
-                    <div className="pt-6 border-t border-white/10">
+                    <div className="border-t border-[#eedff8] pt-6">
                       <div className="flex items-center gap-2 mb-4">
                         <Code className={`w-5 h-5 ${colorClasses.icon}`} />
-                        <h4 className="text-lg text-white font-semibold">Technologies</h4>
+                        <h4 className="text-lg font-semibold text-[#4e4063]">Technologies</h4>
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {experience.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className={`px-3 py-1.5 ${colorClasses.badge} rounded-full text-sm backdrop-blur-sm transition-all`}
+                            className={`rounded-full px-3 py-1.5 text-sm transition-all ${colorClasses.badge}`}
                           >
                             {tech}
                           </span>
